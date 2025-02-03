@@ -18,6 +18,8 @@
               </a>
             </div>
             <img class="img-fluid" src="{{range first 1 .Params.images}}{{.|absURL}}{{end}}" alt="{{.Title}}">
+            <br>
+            <p>{{.Params.description}}</p>
           </div>
           {{ end }}
         </div>
