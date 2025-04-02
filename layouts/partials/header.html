@@ -2,6 +2,11 @@
 <header class="sticky-top bg-white">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
+      <!-- Burger Button -->
+      <button class="navbar-toggle   border-0" type="button" data-toggle="collapse" data-target="#navigation"
+              aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="h2 mb-0">☰</span>
+      </button>
       <a class="navbar-brand" href="{{ .Site.BaseURL | relLangURL }}" style="width: {{ .Site.Params.logo_width }};">
         {{ if .Site.Params.logo }}
           {{ partial "image.html" (dict "Src" .Site.Params.logo "Alt" .Site.Title "Class" "img-fluid" "Width" .Site.Params.logo_width) }}
@@ -9,10 +14,6 @@
           {{ .Site.Title }}
         {{ end }}
       </a>
-      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation"
-        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
       <div class="collapse navbar-collapse text-center" id="navigation">
         <ul class="navbar-nav ml-auto">
@@ -49,7 +50,7 @@
       {{ end }}
 
       <!-- Button Booking -->
-      <a href="https://wa.me/yourwhatsapplink" class="btn btn-main">Schedule your appointment</a>
+      <a href="{{ .Site.Params.whatsappLink }}" class="btn btn-main">Schedule your appointment</a>
     </nav>
   </div>
 </header>
