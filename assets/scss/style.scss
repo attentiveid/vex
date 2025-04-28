@@ -15,11 +15,14 @@ body {
   font-size: 14px;
   font-weight: 300;
   line-height: 25px;
-  color: #3b4045;
+  color: #142c52;
   font-family: $primary-font;
   -webkit-font-smoothing: antialiased;
 }
 
+.col-gold {
+    color: $primary-color;
+    }
 
 .preloader {
   position: fixed;
