@@ -1,0 +1,59 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+
+{{ if $data.homepage.psychologists.enable }}
+{{ with $data.homepage.psychologists }}
+<section class="feature-list section" id="psychologists">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="heading">
+          <h2>{{ .title | markdownify }}</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+<!--      <div class="product-slider">-->
+<!--        <div class="product-image-slider">-->
+
+<!--        </div>-->
+<!--        {{ range $index, $element := .items  }}-->
+<!--        <div class="block">-->
+<!--          <div class="col-md-4 text-center mb-5 mb-lg-0">-->
+
+<!--          </div>-->
+<!--          <div class="col-md-4 text-center mb-5 mb-lg-0">-->
+<!--            {{ partial "image.html" (dict "Src" .image "Alt" "image" "Class" "img-fluid" ) }}-->
+<!--          </div>-->
+<!--          <div class="col-md-4 text-center mb-5 mb-lg-0">-->
+
+<!--          </div>-->
+<!--          <br>-->
+<!--          <p>{{.Params.description}}</p>-->
+<!--        </div>-->
+<!--        {{ end }}-->
+<!--      </div>-->
+
+      <div class="psychologist-slider col-md-12">
+        {{ range .items }}
+        <div class="block col-md text-center">
+          <img src="{{ .image | absURL }}" alt="{{ .name }}" class="img-fluid rounded mb-3">
+          <h4 class="text-primary font-weight-bold">{{ .name }}</h4>
+          <p>{{ .title }}</p>
+          <div class="d-flex flex-wrap justify-content-center mb-3">
+            {{ range .specializations }}
+            <span class="badge badge-outline-primary m-1">{{ . }}</span>
+            {{ end }}
+          </div>
+          <p>Experience: {{ .experience }}</p>
+          <p>No. SIPP: {{ .sipp }}</p>
+          <a href="{{ .whatsapp }}" class="btn btn-warning">Schedule</a>
+        </div>
+
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}
