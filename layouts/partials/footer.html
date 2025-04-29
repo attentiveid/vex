@@ -48,16 +48,10 @@
     $('.psychologist-slider').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: true,
+      autoplay: false,
       dots: true,
-      arrows: true,
-      responsive: [
-        {
-          settings: {
-
-          }
-        }
-      ]
+      arrows: false,
+      infinite: true
     });
 
     var sideMenu = document.getElementById("sideMenu");

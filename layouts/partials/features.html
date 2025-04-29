@@ -17,11 +17,11 @@
 
       </div>
     </div>
-    <div class="row align-items-center">
+    <div class="row align-items-center" style="padding-top: 15px;">
         <div class="col-md-12 align-items-center text-center">
           {{ if .button.enable }}
           {{ with .button }}
-          <a href="{{.link|absLangURL}}" class="btn btn-main">{{.label}}</a>
+          <a href="{{.link|absLangURL}}" class="btn btn-main btn-black-text">{{.label}}</a>
           {{ end }}
           {{ end }}
         </div>

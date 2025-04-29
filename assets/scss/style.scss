@@ -21,7 +21,7 @@ body {
 }
 
 .col-gold {
-  color: $primary-color;
+    color: $primary-color;
 }
 
 .preloader {
@@ -172,7 +172,7 @@ a:active {
   padding-bottom: 70px;
 
   h2 {
-    color: #3c3c3c;
+    color: #142c52;
     padding-bottom: 15px;
     text-transform: capitalize;
     font-weight: 700;
@@ -252,45 +252,39 @@ header.sticky-top {
     line-height: 1;
     font-weight: 700;
 
-    @media (max-width: 900px) { // Tablet (misal iPad)
+    @media (max-width: 900px) {
       width: 170px;
       padding: 0.45rem 0.9rem;
     }
 
-    @media (max-width: 767.98px) { // Mobile
+    @media (max-width: 767.98px) {
       width: 160px;
       padding: 0.4rem 0.8rem;
     }
   }
 
   &-btn-schedule {
-    flex-shrink: 0; /* biar gak ketiban elemen lain */
-    margin-left: auto; /* dorong ke kanan */
+    flex-shrink: 0;
+    margin-left: auto;
     font-size: 20px;
     line-height: 1;
     font-weight: 600;
 
     a {
-      font-size: 16px; // Desktop ukuran normal
-      padding: 0.5rem 1rem; // Padding normal
+      font-size: 16px;
+      padding: 0.5rem 1rem;
 
-      @media (max-width: 991.98px) { // Tablet (misal iPad)
+      @media (max-width: 991.98px) {
         font-size: 13px;
         padding: 0.4rem 0.8rem;
       }
 
-      @media (max-width: 767.98px) { // Mobile
+      @media (max-width: 767.98px) {
         font-size: 11px;
         padding: 0.3rem 0.7rem;
       }
     }
 
-    //@include mobile {
-    //  a {
-    //    padding: 0.4rem 0.8rem;
-    //    font-size: 14px;
-    //  }
-    //}
   }
 
   &-toggler {
@@ -364,7 +358,7 @@ header.sticky-top {
 }
 
 .navbar-toggler {
-  display: block !important; // Force show
+  display: block !important;
   border: none !important;
   padding: 0.5rem !important;
   font-size: 1.5rem !important;
@@ -601,7 +595,6 @@ footer {
   }
 }
 
-// product single
 p.price {
   font-size: 30px;
   font-family: $secondary-font;
@@ -657,9 +650,6 @@ textarea.form-control {
   z-index: 1;
 }
 
-
-/* product sinngle page */
-
 .product-image-slider {
   position: sticky;
   top: 80px;
@@ -668,38 +658,49 @@ textarea.form-control {
     border-radius: 5px;
   }
 
+}
+
+.slider-wrapper {
+  position: relative;
+
   .slick-dots {
-    margin-top: 10px;
-    padding-left: 0;
-    display: flex;
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex !important;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 
     li {
-      list-style-type: none;
-      margin: 10px;
-      border-radius: 5px;
-      padding: 10px;
-      cursor: pointer;
+      margin: 0 4px;
 
-      &:first-child {
-        margin-left: 0;
+      button {
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #ccc;
+        }
       }
 
-      &:last-child {
-        margin-right: 0;
-      }
-
-      img {
-        max-height: 80px;
-        height: auto;
-        max-width: 100%;
+      &.slick-active button:before {
+        background-color: #000;
       }
     }
   }
 }
 
-
-
-/* content style */
 .content {
   * {
     margin-bottom: 20px;
@@ -817,7 +818,6 @@ textarea.form-control {
   cursor: pointer;
 }
 
-/* overlay */
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -829,7 +829,6 @@ textarea.form-control {
   transition: width 0.3s ease;
 }
 
-/* hide scroll when menu open (optional) */
 body.menu-open {
   overflow: hidden;
 }
@@ -839,5 +838,75 @@ body.menu-open {
 
   &:hover {
     color: #000 !important;
+  }
+}
+
+.text-border {
+  border: 1px solid #d6a74d;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 0;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+.psychologist-card {
+  display: flex;
+  flex-wrap: wrap;
+
+  > div {
+    flex: 1 1 100%;
+  }
+
+  .icon-category {
+    .icon-img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media (min-width: 768px) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .category-text {
+      text-align: center;
+
+      @media (min-width: 768px) {
+        text-align: left;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .psychologist-card {
+      flex-direction: column;
+
+      .icon-category      { order: 1; }
+      .image              { order: 2; }
+      .name-title         { order: 3; }
+      .experience         { order: 4; }
+      .sipp               { order: 5; }
+      .specializations    { order: 6; }
+      .button             { order: 7; }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .psychologist-card {
+      flex-direction: column;
+
+      .icon-category      { order: 1; }
+      .image              { order: 2; }
+      .name-title         { order: 3; }
+      .experience         { order: 4; }
+      .sipp               { order: 5; }
+      .specializations    { order: 6; }
+      .button             { order: 7; }
+    }
   }
 }
