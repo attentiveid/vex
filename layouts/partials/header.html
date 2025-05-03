@@ -1,57 +1,45 @@
-<!-- navigation -->
 <header class="sticky-top bg-white">
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <!-- Burger Button -->
-      <button class="navbar-toggle   border-0" type="button" data-toggle="collapse" data-target="#navigation"
-              aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="h2 mb-0">☰</span>
-      </button>
-      <a class="navbar-brand" href="{{ .Site.BaseURL | relLangURL }}" style="width: {{ .Site.Params.logo_width }};">
-        {{ if .Site.Params.logo }}
-          {{ partial "image.html" (dict "Src" .Site.Params.logo "Alt" .Site.Title "Class" "img-fluid" "Width" .Site.Params.logo_width) }}
-        {{ else }}
-          {{ .Site.Title }}
-        {{ end }}
-      </a>
+    <nav class="navbar navbar-light py-3">
+      <div class="d-flex justify-content-between align-items-center w-100">
+        <!-- Burger Button -->
+        <button class="menu-toggle border-0 bg-transparent p-0 flex-shrink-0" type="button" aria-label="Toggle navigation">
+          <img src="{{ .Site.Params.burger_img | absURL }}" alt="Menu">
+        </button>
 
-      <div class="collapse navbar-collapse text-center" id="navigation">
-        <ul class="navbar-nav ml-auto">
-          {{ range site.Menus.main }}
-          <li class="nav-item">
-            <a class="nav-link" href="{{if .Pre}}{{site.BaseURL | relLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{ .Name }}</a>
-          </li>
-          {{ end }}
-        </ul>
-        <!-- Language List -->
-        {{ if .IsTranslated }}
-        <select class="lang-list" id="select-language" onchange="location = this.value;">
-          {{ $siteLanguages := .Site.Languages}}
-          {{ $pageLang := .Page.Lang}}
-          {{ range .Page.AllTranslations }}
-          {{ $translation := .}}
-          {{ range $siteLanguages }}
-          {{ if eq $translation.Lang .Lang }}
-          {{ $selected := false }}
-          {{ if eq $pageLang .Lang}}
-          <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}" selected>{{ .LanguageName }}
-          </option>
+        <!-- Brand -->
+        <a class="navbar-brand mx-auto flex-grow-1 text-center" href="{{ .Site.BaseURL | relLangURL }}">
+          {{ if .Site.Params.logo }}
+          <img src="{{ .Site.Params.logo | absURL }}" alt="{{ .Site.Title }}" class="brand-logo">
           {{ else }}
-          <option id="{{ $translation.Language }}" value="{{ $translation.Permalink }}">{{ .LanguageName }}</option>
+          {{ .Site.Title }}
           {{ end }}
-          {{ end }}
-          {{ end }}
-          {{ end }}
-        </select>
-        {{ end }}
-      </div>
-      {{ if site.Params.snipcart.enable}}
-      <button class="cart snipcart-checkout"><i class="tf-ion-android-cart"></i><span class="badge badge-primary snipcart-items-count"></span></button>
-      {{ end }}
+        </a>
 
-      <!-- Button Booking -->
-      <a href="{{ .Site.Params.whatsappLink }}" class="btn btn-main">Schedule your appointment</a>
+        <!-- Schedule Button -->
+        <div class="navbar-btn-schedule flex-shrink-0">
+          <a href="{{ .Site.Params.whatsappLink }}" class="btn btn-main btn-black-text d-lg-inline-block">
+            Schedule your appointment
+          </a>
+        </div>
+      </div>
     </nav>
+
+    <!-- Side Menu -->
+    <div id="sideMenu" class="side-menu">
+      <button class="close-btn" aria-label="Close">&times;</button>
+      <ul class="navbar-nav">
+        {{ range site.Menus.main }}
+        <li class="nav-item {{ if $.IsMenuCurrent "main" . }}active{{ end }}">
+        <a class="nav-link" href="{{if .Pre}}{{site.BaseURL | relLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">
+          {{ .Name }}
+        </a>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <!-- Overlay -->
+    <div id="menuOverlay" class="menu-overlay"></div>
   </div>
 </header>
-<!-- /navigation -->

@@ -11,7 +11,7 @@
           <ul class="list-inline footer-menu">
             {{ range site.Menus.footer }}
             <li class="list-inline-item">
-              <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+              <a class="nav-link" href="{{if .Pre}}{{site.BaseURL | relLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{ .Name }}</a>
             </li>
             {{ end }}
           </ul>
@@ -24,6 +24,7 @@
 
 
 <!-- Snipcart public key -->
+{{with site.Params.snipcart_api}}<div hidden id="snipcart" data-api-key="{{.}}"></div>{{end}}
 {{ with site.Params.snipcart }}
 {{ if .enable }}
 {{ with .snipcart_api }}
@@ -31,6 +32,7 @@
 {{ end }}
 {{ end }}
 {{ end }}
+
 
 <!-- JS Plugins -->
 {{ range site.Params.plugins.js}}
@@ -40,3 +42,41 @@
 <!-- Main Script -->
 {{ $script := resources.Get "js/script.js" }}
 <script src="{{ $script.Permalink }}"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    $('.psychologist-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: false,
+      dots: true,
+      arrows: false,
+      infinite: true
+    });
+
+    var sideMenu = document.getElementById("sideMenu");
+    var overlay = document.getElementById("menuOverlay");
+    var toggle = document.querySelector(".menu-toggle");
+    var closeBtn = document.querySelector(".close-btn");
+
+    toggle.addEventListener("click", function() {
+      sideMenu.style.width = "250px";
+      overlay.style.width = "100%";
+      document.body.classList.add('menu-open');
+    });
+
+    closeBtn.addEventListener("click", function() {
+      sideMenu.style.width = "0";
+      overlay.style.width = "0";
+      document.body.classList.remove('menu-open');
+    });
+
+    overlay.addEventListener("click", function() {
+      sideMenu.style.width = "0";
+      overlay.style.width = "0";
+      document.body.classList.remove('menu-open');
+    });
+
+
+  });
+</script>

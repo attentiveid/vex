@@ -10,17 +10,21 @@
       </div>
       <div class="col-md-6 text-md-left">
         <h4 class="font-weight-bold text-uppercase">{{ .header | markdownify }}</h4>
-        <h2 class="font-weight-bold">{{ .title1 | markdownify }}<br>{{ .title2 | markdownify }}</h2>
+        <h2 class="font-weight-bold">{{ .title1 | markdownify }}<br>{{ .title2 | markdownify }} <span class="col-gold">{{ .title3 | markdownify }}</span></h2>
         <p class="lead">{{ .content1 | markdownify }}</p>
         <p>{{ .content2 | markdownify }}</p>
         <p class="font-italic font-weight-bold">{{ .tagline | markdownify}}</p>
-        {{ if .button.enable }}
-        {{ with .button }}
-        <a href="{{.link|absLangURL}}" class="btn btn-main">{{.label}}</a>
-        {{ end }}
-        {{ end }}
+
       </div>
     </div>
+    <div class="row align-items-center" style="padding-top: 15px;">
+        <div class="col-md-12 align-items-center text-center">
+          {{ if .button.enable }}
+          {{ with .button }}
+          <a href="{{.link|absLangURL}}" class="btn btn-main btn-black-text">{{.label}}</a>
+          {{ end }}
+          {{ end }}
+        </div>
   </div><!-- .container close -->
 </section>
 {{- end }}
