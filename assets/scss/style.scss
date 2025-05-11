@@ -21,7 +21,7 @@ body {
 }
 
 .col-gold {
-    color: $primary-color;
+  color: $primary-color;
 }
 
 .preloader {
@@ -135,7 +135,7 @@ a:active {
 }
 
 .section {
-  padding: 100px 0;
+  padding: 25px 0;
 }
 
 .font-size-60 {
@@ -665,7 +665,6 @@ textarea.form-control {
 
   .slick-dots {
     position: absolute;
-    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
     display: flex !important;
@@ -909,4 +908,25 @@ body.menu-open {
       .button             { order: 7; }
     }
   }
+}
+
+.section-banner-wrapper {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-banner {
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  object-fit: contain;
+  display: block;
 }
