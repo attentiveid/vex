@@ -3,18 +3,8 @@
 {{- if $data.homepage.banner.enable }}
 {{- with $data.homepage.banner }}
 <!-- hero area -->
-<div>
-    <section class="section d-flex justify-content-center align-items-center text-center px-4 sm:px-6"
-             style="
-            background-image: url('{{ .image | absURL }}');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 100%;
-            min-height: 100vh;
-            padding: 0;
-         ">
-    </section>
+<div class="section-banner-wrapper d-flex justify-content-center align-items-center text-center">
+    <img src="{{ .image | absURL }}" alt="Hero Banner" class="img-banner">
 </div>
 
 <!-- header close -->
