@@ -1,4 +1,5 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
+{{ $instagramLink := .Site.Params.instagramLink }}
 
 {{- if $data.homepage.features.enable }}
 {{- with $data.homepage.features }}
@@ -13,7 +14,7 @@
         <h2 class="font-weight-bold">{{ .title1 | markdownify }}<br>{{ .title2 | markdownify }} <span class="col-gold">{{ .title3 | markdownify }}</span></h2>
         <p class="lead">{{ .content1 | markdownify }}</p>
         <p>{{ .content2 | markdownify }}</p>
-        <p class="font-italic font-weight-bold">{{ .tagline | markdownify}}</p>
+        <p class="font-italic font-weight-bold"><a style="color: inherit" href="{{ $instagramLink }}">{{ .tagline | markdownify}}</a></p>
 
       </div>
     </div>

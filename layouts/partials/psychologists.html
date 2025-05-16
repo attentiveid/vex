@@ -1,3 +1,4 @@
+{{ $whatsappLink := .Site.Params.whatsappLink }}
 {{ $data := index .Site.Data .Site.Language.Lang }}
 
 {{ if $data.homepage.psychologists.enable }}
@@ -56,7 +57,7 @@
 
             <!-- Button -->
             <div class="button flex flex-column col-md-12 text-center order-7 order-md-7" style="margin-top: 20px;">
-              <a href="{{ .whatsapp | absLangURL }}" class="btn btn-main btn-black-text">
+              <a href="{{ $whatsappLink }}" class="btn btn-main btn-black-text">
                 Schedule appointment with the psychologist
               </a>
             </div>
