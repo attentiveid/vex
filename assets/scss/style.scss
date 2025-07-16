@@ -852,67 +852,9 @@ body.menu-open {
   font-weight: 600;
 }
 
-.psychologist-card {
-  display: flex;
-  flex-wrap: wrap;
-
-  > div {
-    flex: 1 1 100%;
-  }
-
-  .icon-category {
-    .icon-img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-
-      @media (min-width: 768px) {
-        margin-left: 0;
-        margin-right: 0;
-      }
-    }
-
-    .category-text {
-      text-align: center;
-
-      @media (min-width: 768px) {
-        text-align: left;
-      }
-    }
-  }
-
-  @media (max-width: 767px) {
-    .psychologist-card {
-      flex-direction: column;
-
-      .icon-category      { order: 1; }
-      .image              { order: 2; }
-      .name-title         { order: 3; }
-      .experience         { order: 4; }
-      .sipp               { order: 5; }
-      .specializations    { order: 6; }
-      .button             { order: 7; }
-    }
-  }
-
-  @media (min-width: 768px) {
-    .psychologist-card {
-      flex-direction: column;
-
-      .icon-category      { order: 1; }
-      .image              { order: 2; }
-      .name-title         { order: 3; }
-      .experience         { order: 4; }
-      .sipp               { order: 5; }
-      .specializations    { order: 6; }
-      .button             { order: 7; }
-    }
-  }
-}
-
 .section-banner-wrapper {
   position: relative;
-  width: 100vw;
+  width: 100vw;  // Gunakan viewport width, bukan 100% (yang bisa terpengaruh parent)
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -929,4 +871,79 @@ body.menu-open {
   max-height: 100vh;
   object-fit: contain;
   display: block;
+}
+
+.psychologist-card {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+
+  > div {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .icon-category {
+    .icon-img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .category-text {
+      text-align: center;
+    }
+  }
+
+  // Mobile:
+  @media (max-width: 767px) {
+
+    flex-direction: column;
+    .icon-category      { order: 1; }
+    .image              { order: 2; }
+    .name-title         { order: 3; }
+    .experience         { order: 4; }
+    .sipp               { order: 5; }
+    .specializations    { order: 6; }
+    .button             { order: 7; }
+  }
+
+  // Tablet/Desktop:
+  @media (min-width: 768px) {
+    .icon-category .text-md-left {
+      text-align: left !important; // Override Bootstrap's text-center
+    }
+    .specializations h4 {
+      text-align: left !important;
+    }
+
+    flex-direction: column;
+
+    .icon-category      {
+      order: 1;
+      .icon-img {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .category-text {
+        text-align: left;
+      }
+    }
+
+    .image              { order: 2; }
+    .name-title         { order: 3; }
+    .experience         { order: 4; }
+    .sipp               { order: 5; }
+    .specializations    { order: 6; }
+    .button             { order: 7; }
+  }
+}
+
+// Ensure the entire card is centered within the slider for all screen sizes.
+.psychologist-slider .block {
+  display: flex;
+  justify-content: center;
+  padding: 20px 15px;
 }
