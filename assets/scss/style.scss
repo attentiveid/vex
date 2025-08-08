@@ -873,77 +873,40 @@ body.menu-open {
   display: block;
 }
 
+.psychologist-slider .block {
+  display: flex;
+  justify-content: center;
+  padding: 20px 15px;
+}
+
 .psychologist-card {
   padding: 20px;
   border: 1px solid #eee;
   border-radius: 8px;
 
+  .button-container {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+  }
+
+  // Base Style Mobile Portrait
   > div {
     text-align: center;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
   }
 
-  .icon-category {
-    .icon-img {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .category-text {
-      text-align: center;
+  @media (max-width: 767.98px) {
+    .button-container .btn {
+      padding: 10px 20px;
+      font-size: 14px;
     }
   }
 
-  // Mobile:
-  @media (max-width: 767px) {
-
-    flex-direction: column;
-    .icon-category      { order: 1; }
-    .image              { order: 2; }
-    .name-title         { order: 3; }
-    .experience         { order: 4; }
-    .sipp               { order: 5; }
-    .specializations    { order: 6; }
-    .button             { order: 7; }
-  }
-
-  // Tablet/Desktop:
+  // Tablet/Desktop
   @media (min-width: 768px) {
     .icon-category .text-md-left {
-      text-align: left !important; // Override Bootstrap's text-center
-    }
-    .specializations h4 {
       text-align: left !important;
     }
-
-    flex-direction: column;
-
-    .icon-category      {
-      order: 1;
-      .icon-img {
-        margin-left: 0;
-        margin-right: 0;
-      }
-      .category-text {
-        text-align: left;
-      }
-    }
-
-    .image              { order: 2; }
-    .name-title         { order: 3; }
-    .experience         { order: 4; }
-    .sipp               { order: 5; }
-    .specializations    { order: 6; }
-    .button             { order: 7; }
   }
-}
-
-// Ensure the entire card is centered within the slider for all screen sizes.
-.psychologist-slider .block {
-  display: flex;
-  justify-content: center;
-  padding: 20px 15px;
 }
