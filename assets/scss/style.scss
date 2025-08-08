@@ -902,11 +902,4 @@ body.menu-open {
       font-size: 14px;
     }
   }
-
-  // Tablet/Desktop
-  @media (min-width: 768px) {
-    .icon-category .text-md-left {
-      text-align: left !important;
-    }
-  }
 }
