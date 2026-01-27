@@ -2,9 +2,9 @@
 
 // Variables
 $primary-font: 'Josefin Sans',
-sans-serif;
+  sans-serif;
 $secondary-font: 'Droid Serif',
-serif;
+  serif;
 $primary-color: #d6a74d;
 $icon-font: 'themefisher-font' !important;
 
@@ -390,7 +390,8 @@ header.sticky-top {
   background: transparent;
   border: 0;
   position: relative;
-  i{
+
+  i {
     font-size: 20px;
   }
 
@@ -407,12 +408,13 @@ header.sticky-top {
     right: -10px;
 
   }
-  &:focus{
+
+  &:focus {
     outline: 0;
   }
 }
 
-.badge-primary{
+.badge-primary {
   background-color: $primary-color;
 }
 
@@ -624,6 +626,100 @@ s.price {
   }
 }
 
+// Location Cards - Premium Design
+.location-cards {
+  gap: 1.5rem;
+}
+
+.location-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(214, 167, 77, 0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(214, 167, 77, 0.15);
+  }
+
+  &-body {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    @include mobile {
+      padding: 1.5rem;
+    }
+  }
+
+  &-title {
+    color: #142c52;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      background: $primary-color;
+      margin: 0.75rem auto 0;
+      border-radius: 2px;
+    }
+  }
+
+  &-text {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+
+    @include mobile {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(214, 167, 77, 0.3);
+
+  &:hover {
+    background: linear-gradient(135deg, darken($primary-color, 5%) 0%, darken($primary-color, 15%) 100%);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(214, 167, 77, 0.4);
+  }
+
+  span {
+    font-size: 1.1rem;
+  }
+
+  @include mobile {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+  }
+}
+
 .form-control {
   border: 1px solid #dadada;
   border-radius: 35px;
@@ -653,6 +749,7 @@ textarea.form-control {
 .product-image-slider {
   position: sticky;
   top: 80px;
+
   .slick-list {
     margin-bottom: 10px;
     border-radius: 5px;
@@ -718,7 +815,8 @@ textarea.form-control {
     margin-bottom: 10px;
   }
 
-  ol,ul {
+  ol,
+  ul {
     padding-left: 10px;
   }
 
@@ -768,10 +866,11 @@ textarea.form-control {
   }
 }
 
-.link-title{
+.link-title {
   color: inherit;
   text-decoration: none !important;
-  &:hover{
+
+  &:hover {
     color: $primary-color;
   }
 }
@@ -823,7 +922,7 @@ textarea.form-control {
   left: 0;
   height: 100%;
   width: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1040;
   transition: width 0.3s ease;
 }
@@ -854,7 +953,7 @@ body.menu-open {
 
 .section-banner-wrapper {
   position: relative;
-  width: 100vw;  // Gunakan viewport width, bukan 100% (yang bisa terpengaruh parent)
+  width: 100vw; // Gunakan viewport width, bukan 100% (yang bisa terpengaruh parent)
   left: 50%;
   right: 50%;
   margin-left: -50vw;
@@ -891,7 +990,7 @@ body.menu-open {
   }
 
   // Base Style Mobile Portrait
-  > div {
+  >div {
     text-align: center;
     margin-bottom: 1.5rem;
   }
