@@ -3,15 +3,19 @@
     <div class="row">
       <div class="col-md-12">
         <div class="block">
-          <a href="{{ site.BaseURL | relLangURL }}" class="mb-4 d-inline-block" style="width: {{ .Site.Params.logo_width }};">
-            {{ if site.Params.logo }} 
-            {{ partial "image.html" (dict "Src" .Site.Params.logo "Alt" .Site.Title "Class" "img-fluid" "Width" .Site.Params.logo_width) }}
-             {{ else }} {{ .Title }} {{ end }}
+          <a href="{{ site.BaseURL | relLangURL }}" class="mb-4 d-inline-block"
+            style="width: {{ .Site.Params.logo_width }};">
+            {{ if site.Params.logo }}
+            {{ partial "image.html" (dict "Src" .Site.Params.logo "Alt" .Site.Title "Class" "img-fluid" "Width"
+            .Site.Params.logo_width) }}
+            {{ else }} {{ .Title }} {{ end }}
           </a>
           <ul class="list-inline footer-menu">
             {{ range site.Menus.footer }}
             <li class="list-inline-item">
-              <a class="nav-link" href="{{if .Pre}}{{site.BaseURL | relLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{ .Name }}</a>
+              <a class="nav-link"
+                href="{{if .Pre}}{{site.BaseURL | relLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{
+                .Name }}</a>
             </li>
             {{ end }}
           </ul>
@@ -50,8 +54,10 @@
       slidesToScroll: 1,
       autoplay: false,
       dots: true,
-      arrows: false,
-      infinite: true
+      arrows: true,
+      infinite: true,
+      prevArrow: '<button type="button" class="slick-prev"><i class="tf-ion-ios-arrow-back"></i></button>',
+      nextArrow: '<button type="button" class="slick-next"><i class="tf-ion-ios-arrow-forward"></i></button>'
     });
 
     var sideMenu = document.getElementById("sideMenu");
@@ -59,19 +65,19 @@
     var toggle = document.querySelector(".menu-toggle");
     var closeBtn = document.querySelector(".close-btn");
 
-    toggle.addEventListener("click", function() {
+    toggle.addEventListener("click", function () {
       sideMenu.style.width = "250px";
       overlay.style.width = "100%";
       document.body.classList.add('menu-open');
     });
 
-    closeBtn.addEventListener("click", function() {
+    closeBtn.addEventListener("click", function () {
       sideMenu.style.width = "0";
       overlay.style.width = "0";
       document.body.classList.remove('menu-open');
     });
 
-    overlay.addEventListener("click", function() {
+    overlay.addEventListener("click", function () {
       sideMenu.style.width = "0";
       overlay.style.width = "0";
       document.body.classList.remove('menu-open');
