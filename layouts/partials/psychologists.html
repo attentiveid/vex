@@ -40,20 +40,36 @@
             </div>
 
             <!-- Experience -->
-            <div class="experience flex flex-column col-md-4 text-center justify-content-center align-items-center order-4 order-md-4">
+            <div
+              class="experience flex flex-column col-md-4 text-center justify-content-center align-items-center order-4 order-md-4">
               <h4>Practice Experience : <span class="font-weight-bold">{{ .experience }}</span></h4>
             </div>
 
             <!-- Name & Title -->
-            <div class="name-title flex flex-column col-md-4 text-center justify-content-center align-items-center order-3 order-md-5">
+            <div
+              class="name-title flex flex-column col-md-4 text-center justify-content-center align-items-center order-3 order-md-5">
               <h2 class="font-weight-bold col-gold">{{ .name | markdownify }}</h2>
               <h3 class="font-weight-bold col-gold">{{ .title | markdownify }}</h3>
+              <!-- Location Badges -->
+              {{ if or .locations .location }}
+              <div class="location-badges">
+                {{ $locs := .locations | default .location }}
+                {{ if reflect.IsSlice $locs }}
+                <span class="location-badge">📍 {{ delimit $locs " • " }}</span>
+                {{ else }}
+                <span class="location-badge">📍 {{ $locs }}</span>
+                {{ end }}
+              </div>
+              {{ end }}
             </div>
 
             <!-- SIPP -->
-            <div class="sipp flex flex-column col-md-4 text-center justify-content-center align-items-center order-5 order-md-6">
+            {{ if and .sipp (ne .sipp "-") }}
+            <div
+              class="sipp flex flex-column col-md-4 text-center justify-content-center align-items-center order-5 order-md-6">
               <h4>No. SIPP : <span class="font-weight-bold">{{ .sipp | markdownify }}</span></h4>
             </div>
+            {{ end }}
 
             <!-- Button -->
             <div class="button flex flex-column col-md-12 text-center order-7 order-md-7" style="margin-top: 20px;">
