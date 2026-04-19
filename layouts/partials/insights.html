@@ -1,0 +1,36 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+{{ if $data.homepage.insights.enable }}
+{{ with $data.homepage.insights }}
+<section class="section" id="insights">
+  <div class="container">
+    <!-- Heading (same pattern as other sections) -->
+    <div class="heading">
+      <h2>{{ .title | markdownify }}</h2>
+      <p>{{ .subtitle | markdownify }}</p>
+    </div>
+    
+    <!-- Carousel container -->
+    <div class="row slider-wrapper">
+      <div class="insights-slider col-md-12">
+        {{ range .items }}
+        <div class="block">
+          <article class="insight-card">
+            <div class="insight-image">
+              <img src="{{ .image | absURL }}" alt="{{ .title }}" class="img-fluid">
+            </div>
+            <div class="insight-card-body">
+              <span class="insight-source">{{ .source }}</span>
+              <h4 class="font-weight-bold mb-2">{{ .title | markdownify }}</h4>
+              <p class="text-justify">{{ .summary | markdownify }}</p>
+              <a href="{{ .url }}" target="_blank" rel="noopener" 
+                 class="insight-link font-weight-bold">Read more →</a>
+            </div>
+          </article>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+{{ end }}

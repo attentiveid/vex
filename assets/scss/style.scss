@@ -1003,6 +1003,139 @@ body.menu-open {
   }
 }
 
+// Insight Cards
+.insight-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(214, 167, 77, 0.1);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(214, 167, 77, 0.15);
+  }
+
+  .insight-image {
+    height: 200px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+  }
+
+  &:hover .insight-image img {
+    transform: scale(1.05);
+  }
+
+  &-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    h4 {
+      color: #142c52;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+  }
+}
+
+.insight-source {
+  display: inline-block;
+  background: rgba(214, 167, 77, 0.1);
+  color: #d6a74d;
+  padding: 2px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.insight-link {
+  color: #d6a74d;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: darken(#d6a74d, 10%);
+    text-decoration: none;
+    padding-left: 5px;
+  }
+}
+
+// Slider adjustments for Insights
+.insights-slider {
+  .block {
+    padding: 20px 15px;
+  }
+
+  .slick-prev,
+  .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 2px solid #d6a74d;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    i {
+      font-size: 24px;
+      color: #d6a74d;
+    }
+
+    &:hover {
+      background: #d6a74d;
+      i { color: #fff; }
+    }
+  }
+
+  .slick-prev { left: -30px; }
+  .slick-next { right: -30px; }
+
+  @media (max-width: 1200px) {
+    .slick-prev { left: -10px; }
+    .slick-next { right: -10px; }
+  }
+
+  @media (max-width: 991px) {
+    .slick-prev, .slick-next {
+      top: auto;
+      bottom: -60px;
+    }
+    .slick-prev { left: calc(50% - 60px); }
+    .slick-next { right: calc(50% - 60px); }
+  }
+}
+
 // Psychologist Slider Navigation Arrows
 .psychologist-slider {
   position: relative;
